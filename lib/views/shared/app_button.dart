@@ -1,6 +1,7 @@
 import 'package:dog_walking_app_ui/utils/constants/colors.dart';
 import 'package:dog_walking_app_ui/utils/styles/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 
 class OrangeGradientButton extends StatelessWidget {
   final String? buttonText;
@@ -46,5 +47,43 @@ class AppTextButton extends StatelessWidget {
     return TextButton(
         onPressed: pressed,
         child: Text(buttonText!, style: AppTextStyles.orangeText));
+  }
+}
+
+class SmallOrangeGradientButton extends StatelessWidget {
+  final String? buttonText;
+  final VoidCallback? pressed;
+  const SmallOrangeGradientButton({Key? key, this.buttonText, this.pressed})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 9),
+      child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            gradient: const LinearGradient(colors: [
+              Color.fromRGBO(255, 144, 75, 1),
+              Color.fromRGBO(251, 114, 76, 1),
+            ]),
+          ),
+          height: MediaQuery.of(context).size.height / 19,
+          width: MediaQuery.of(context).size.width / 3,
+          child: MaterialButton(
+            onPressed: pressed,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.add, color: AppColors.white),
+                Text(
+                  buttonText!,
+                  style: AppTextStyles.heading4,
+                ),
+              ],
+            ),
+          )),
+    );
   }
 }

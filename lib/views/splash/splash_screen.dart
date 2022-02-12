@@ -1,9 +1,13 @@
+import 'package:dog_walking_app_ui/helpers/ui_helper.dart';
 import 'package:dog_walking_app_ui/utils/constants/constants.dart';
 import 'package:dog_walking_app_ui/utils/constants/image_assets.dart';
 import 'package:dog_walking_app_ui/utils/size_config/size_config.dart';
 import 'package:dog_walking_app_ui/utils/styles/styles.dart';
+import 'package:dog_walking_app_ui/views/login/login.dart';
 import 'package:dog_walking_app_ui/views/shared/app_button.dart';
+import 'package:dog_walking_app_ui/views/signup/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -56,18 +60,18 @@ class SplashScreen extends StatelessWidget {
       children: [
         Center(child: Text(tooTired, style: AppTextStyles.heading1)),
         Center(child: Text(letsHelp, style: AppTextStyles.heading1)),
+        UIHelper.verticalSpaceSmall,
         OrangeGradientButton(
           buttonText: joinOur,
-          pressed: () {},
+          pressed: () => Get.to(const SignUpView()),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(alreadyMember, style: AppTextStyles.bodyText1),
             AppTextButton(
-              buttonText: signIn,
-              pressed: () {},
-            )
+                buttonText: signIn,
+                pressed: () => Get.to(() => const LoginView()))
           ],
         ),
       ],

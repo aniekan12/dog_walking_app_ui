@@ -1,6 +1,7 @@
 import 'package:dog_walking_app_ui/views/splash/splash_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 void main() {
   showDebugPrint();
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Dog Walker',
       theme: ThemeData(
         fontFamily: 'Inter',
